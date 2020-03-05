@@ -1,0 +1,29 @@
+<div class="devise_wrap">
+  <h2>user登録</h2>
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+    <div class="field">
+      名前
+      <%= f.text_field :nickname, class: "field-box", autofocus: true, autocomplete: "nickname", placeholder: "例）山田花子" %>
+    </div>
+
+
+    <div class="field">
+      メール<%= f.email_field :email, class: "field-box", autofocus: true, autocomplete: "email", placeholder: "例）yamada@iCloud.com" %>
+    </div>
+    
+    <div class="field">
+      パスワード<%= f.password_field :password, class: "field-box", autocomplete: "off", placeholder: "パスワードを作成します" %>
+    </div>
+
+    <div class="field">
+      パスワード確認<%= f.password_field :password_confirmation, class: "field-box", autocomplete: "off", placeholder: "パスワードを確認します" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "登録する", class: "actions_btn" %>
+    </div>
+  <% end %>
+</div>

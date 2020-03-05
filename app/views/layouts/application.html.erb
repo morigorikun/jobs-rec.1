@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JobsRec</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+      <div class="header-wrap">
+        <a href="/products" class="top-post"><img src="/img/jobs-rec001.png" height="80" ></a>
+        <% if user_signed_in? %>
+          <ul class="post">
+            <li class="post_list">
+              <a href="/products/new">製品を作成</a>
+            </li>
+            <li class="post_list">
+              <a href="/users/<%= current_user.id %>">マイページ</a>
+            </li>
+            <li class="post_list">
+              <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+            </li>
+          </ul>
+        <% else %>
+          <ul class="post">
+            <li class="post_list">
+              <%= link_to "ログイン", new_user_session_path %>
+            </li>
+            <li class="post_list">
+              <%= link_to "user登録", new_user_registration_path %>
+            </li>
+          </ul>
+        <% end %>
+      </div>
+    </header>
+    <%= yield %>
+    <footer>
+      <div class="footer-wrap">
+        <P>
+        jobs-rec.
+        </p>
+      </div>
+      <div class="footer-wrap">
+        <P>
+        jobs-rec.は、製品を作成する際に記録を残しておき、後日作成した製品の詳細を確認するために作成しました。
+        </p>
+      </div>
+      <div class="footer-wrap">
+        <P>
+        汎用性の高いアプリケーションとして使用したかったので、内容を細かく設定していません。
+        </p>
+      </div>
+      <div class="footer-wrap">
+        <P>
+        使用方法は、まずuser登録してください。登録しないと製品の記録はできません。
+        </p>
+      </div>
+      <div class="footer-wrap">
+        <P>
+        製品を作成のボタンをクリックすれば作成画面へ移動します。記述するのは、機械名、製品名、作成数です。
+        </p>
+      </div>
+      <div class="footer-wrap">
+        <P>
+        作成できたら、top画面に作成した製品の記録が表示されます。作成したuser本人なら、記録の削除や編集ができるようになっています。
+        </p>
+      </div>
+      <div class="footer-wrap">
+        <P>
+        詳細ボタンをクリックすれば、製品の詳細を記録することができます。titleには題名を記述し、textには内容を記録します。詳細の中でも、記録した本人であれば詳細内で作成した内容が削除できるようになっています。
+        </p>
+      </div>
+      <div class="footer-wrap">
+        <P>
+        マイページのボタンをクリックすれば、本人が今まで作成してきた製品一覧が表示されます。
+        </p>
+      </div>
+      <div class="footer-wrap">
+        <P>
+        topページで表示されているuserの名前をクリックすれば、そのuserが作成した製品一覧が表示されます。
+        </p>
+      </div>
+      <div class="footer-wrap">
+        <P>
+        他のuserが作成した製品の詳細は誰でも見れるようになっています。詳細内での記録も誰でもできるようになっていて、注意書きなど自由に作成することができます。
+        </p>
+      </div>
+      <div class="footer-wrap">
+        <P>
+        記録が多くなってきたら探すのが大変になるので、検索機能を作成しました。機械名での検索と製品名での検索ができます。
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,84 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ body {
+  margin: 0;
+  padding: 0;
+}
+/* header */
+header {
+ /* background: rgba(102, 169, 231, 0.8); */
+ height: 120px;
+}
+.header-wrap {
+ width: 800px;
+ margin: 0 auto;
+ padding: 10px 20px;
+}
+.header-wrap:after {
+  content:"";
+  display: block;
+  clear: both;
+}
+.top-post {
+  float: left;
+  cursor: pointer;
+}
+.top-post:hover {
+  opacity: .8;
+  transition: .3s;
+}
+.post {
+  width: 500px;
+  height: 80px;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  float: left;
+}
+.post_list {
+  list-style-type: none;
+  height: 30px;
+  width: 100px;
+  border-radius: 5px;
+  line-height: 30px;
+  display: inline-block;
+  margin: 40px 10px 0;
+  padding: 0 10px;
+  border: 1px solid #333;
+}
+.post_list a {
+  text-decoration: none;
+  color: skyblue;
+}
+.post_list:hover {
+  opacity: .8;
+}
+/* footer */
+.footer-wrap {
+ /* height: 20px; */
+ background: black;
+ opacity: .7;
+ padding: 5px;
+ margin: 1px 0;
+}
+.footer-wrap p {
+ text-align: center;
+ color: white;
+ line-height: 20px;
+ font-size: 12px;
+ margin: 0;
+ color: yellow;
+}

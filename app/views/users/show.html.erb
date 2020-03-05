@@ -1,0 +1,20 @@
+<h2 class="user_show-title"><%= @nickname %>さんの制作した製品一覧</h2>
+  <% @products.each do |product| %>
+    <div class="product-center-wrap-flex">
+      <div class="product-center-wrap_name">
+        <h2>機械名:<%= product.machine %></h2>
+        <h3>製品名:<%= product.name %></h3>
+        <p>作成数:<%= product.text %></p>
+      </div>
+      <div class="product_list">
+        <%= link_to "詳細", "/products/#{product.id}", method: :get %>
+        <% if user_signed_in? && current_user.id == product.user_id %>
+          <%= link_to "削除する", "/products/#{product.id}", method: :delete %>
+          <%= link_to "編集する", "/products/#{product.id}/edit", method: :get %>
+        <% end %>
+        
+        <p class="product_list-day">作成日<%= product.created_at.to_s(:datetime_jp) %></p>
+      </div>
+  </div>
+  <% end %>
+<%= paginate(@products) %>

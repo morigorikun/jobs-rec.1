@@ -1,0 +1,18 @@
+<div class="devise_wrap"> 
+  <h2>ログイン</h2>
+
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+    <div class="field">
+      メール<%= f.email_field :email, class: "field-box", autofocus: true, autocomplete: "email" %>
+    </div>
+    
+    <div class="field">
+      パスワード<%= f.password_field :password, class: "field-box", autocomplete: "current-password" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "ログイン", class: "actions_btn" %>
+    </div>
+  <% end %>
+</div>

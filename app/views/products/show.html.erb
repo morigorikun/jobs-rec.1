@@ -1,0 +1,43 @@
+<div class="product-center-wrap-flex-content">
+  <div class="product-center-wrap_name">
+    <h2>機械名:<%= @product.machine %></h2>
+    <h3>製品名:<%= @product.name %></h3>
+    <p>作成数:<%= @product.text %></p>
+  </div>
+  <div class="product_create-days">
+    <h4>作成者<a href="/users/<%= @product.user.id %>"><%= @product.user.nickname %></a></h4>
+  </div>
+
+  <% if user_signed_in? && current_user.id == @product.user_id %>
+    <div class="product_list">
+      <%= link_to "削除する", "/products/#{@product.id}", method: :delete %>
+      <%= link_to "編集する", "/products/#{@product.id}/edit", method: :get %>
+    </div>
+  <% end %>
+
+
+  <% if current_user %>
+    <%= form_tag("/products/#{@product.id}/contents", method: :post) do %>
+      <div class="product_show-content-form">
+        <h4>title</h4>
+        <input type="text" name="title" placeholder="タイトルを記入する" class="product_show-title">
+        <h4>text</h4>
+        <textarea name="text" placeholder="テキストを記入する" class="product_show-text"></textarea>
+        <input type="submit" value="保存する" class="product_show-submit">
+      </div>
+    <% end %>
+  <% end %>
+  <h4 class="product_show-content-title">製品詳細</h4>
+  <% if @contents %>
+    <% @contents.each do |content| %>
+      <div class="product_show-content-list">
+        <h2><strong><%= link_to content.user.nickname, "/users/#{content.user_id}" %></strong></h2>
+        <h3><%= content.title %></h3>
+        <%= simple_format(content.text) %>
+        <% if user_signed_in? && current_user.id == content.user_id %>        
+          <h4><%= link_to "削除", product_content_path(content.id, content.product_id), method: :delete, data: { confirm: '削除しますか？' } %></h4>
+        <% end %>
+      </div>
+    <% end %>
+  <% end %>
+</div>

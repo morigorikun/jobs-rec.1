@@ -1,0 +1,57 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.devise_wrap {
+  width: 800px;
+  margin: 30px auto;
+  padding: 20px;
+  background: #eee;
+  border-radius: 5px;
+  & h2 {
+    margin: 0 auto;
+    // width: 200px;
+    text-align: center;
+  }
+}
+
+.field {
+  width: 470px;
+  height: 50px;
+  background: #fff;
+  margin: 20px auto;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: right;
+  &-box {
+    width: 300px;
+    height: 30px;
+    // background: yellow;
+    padding: 5px;
+    margin-top: 5px;
+    margin-left: 10px;
+    font-size: 18px;
+    border-radius: 5px;
+    border-bottom: 1px solid #333;
+    border-right: 3px solid #333;
+  }
+}
+.actions {
+  text-align: center;
+  width: 600px;
+  height: 50px;
+  margin: 0 auto;
+  &_btn {
+    width: 200px;
+    height: 50px;
+    font-size: 20px;
+    background: #ffe;
+    color: blue;
+  }
+  &:hover {
+    opacity: .7;
+    cursor: pointer;
+  }
+}
+.product_list-day {
+  color: red;
+}

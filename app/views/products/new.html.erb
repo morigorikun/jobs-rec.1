@@ -1,0 +1,16 @@
+<%= form_tag('/products', method: :post) do %>
+<div class="product_new">
+  <h3 class="product_new-title">
+    製品を作成する
+  </h3>
+  <div class="product_new-box">
+    <h4>機械名</h4>
+    <input type="text" name="machine" placeholder="機械名を記入" class="product_new-name">
+    <h4>製品名</h4>
+    <input type="text" name="name" placeholder="作成する製品名を記入" class="product_new-text">
+    <h4>作成数</h4>
+    <input type="text" name="text" placeholder="作成数を記入" class="product_new-number">
+    <input type="submit" value="作成する" class="product_new-btn">
+  </div>
+</div>
+<% end %>
