@@ -35,10 +35,11 @@ header {
 .top-post {
   float: left;
   cursor: pointer;
+  margin-left: 60px;
 }
 .top-post:hover {
-  opacity: .8;
-  transition: .3s;
+  opacity: .5;
+  transition: 1s;
 }
 .post {
   width: 500px;
